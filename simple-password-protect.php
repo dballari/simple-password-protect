@@ -22,7 +22,7 @@ function password_protect_site() {
         wp_die('<form method="post" action="">
             <p>' . esc_html__('Enter the password to access the site:', 'simple-password-protect') . '</p>
             <input type="password" name="password" required />
-            ' . esc_attr(wp_nonce_field('password_protect_action', 'password_protect_nonce'), true, false) . '
+            ' . wp_nonce_field('password_protect_action', 'password_protect_nonce', true, false) . '
             <input type="submit" value="' . esc_html__('Enter', 'simple-password-protect') . '" />
         </form>', esc_html__('Restricted Access', 'simple-password-protect'));
     }
@@ -59,7 +59,7 @@ function password_protect_site() {
         } else {
             wp_die('<form method="post" action="">
                 <p>' . esc_html__('Incorrect password. Please try again:', 'simple-password-protect') . '</p>
-                ' . esc_attr(wp_nonce_field('password_protect_action', 'password_protect_nonce', true, false)) . '
+                ' . wp_nonce_field('password_protect_action', 'password_protect_nonce', true, false) . '
                 <input type="password" name="password" required />
                 <input type="submit" value="' . esc_html__('Enter', 'simple-password-protect') . '" />
             </form>', esc_html__('Restricted Access', 'simple-password-protect'));
