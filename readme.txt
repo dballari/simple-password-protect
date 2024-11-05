@@ -1,15 +1,15 @@
-=== Custom Search Excerpt ===
+=== Simple Password Protection ===
 Contributors: dballari
 Donate link: https://pay.sumup.com/b2c/QFMKLYCT
 Tags: password, protection
 Tested up to: 6.6.2
 Requires at least: 6.5
-Stable tag: 0.0.2
+Stable tag: 0.0.3
 Requires PHP: 7.0
-License: GPLv3
+License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Lightweight plugin which adds a password protection to your WordPress site, blocking access to all content until the correct password is entered, ideal for preventing search engine indexing and allowing controlled access.
+Adds password protection to your WordPress site, blocking access until the correct password is entered, ideal for preventing search engine indexing.
 
 == Description ==
 
@@ -38,6 +38,9 @@ If MY_PASSWORDS is not set, the plugin defaults to a basic password defined with
 Simply set a password, share it with those who need access, and enjoy quick, no-fuss protection.
 
 == Changelog ==
+
+= 0.0.3 =
+* Added nonces
 
 = 0.0.2 =
 * Determine password based on MY_PASSWORDS constant
