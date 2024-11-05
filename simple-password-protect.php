@@ -20,10 +20,10 @@ function password_protect_site() {
     // Display login form if session is not granted
     if (!is_user_logged_in() && !isset($_POST['password']) && !isset($_SESSION['site_access_granted'])) {
         wp_die('<form method="post" action="">
-            <p>' . __('Enter the password to access the site:', 'password-protect-site') . '</p>
+            <p>' . esc_html('Enter the password to access the site:', 'simple-password-protect') . '</p>
             <input type="password" name="password" required />
-            <input type="submit" value="' . __('Enter', 'password-protect-site') . '" />
-        </form>', __('Restricted Access', 'password-protect-site'));
+            <input type="submit" value="' . esc_html('Enter', 'simple-password-protect') . '" />
+        </form>', esc_html('Restricted Access', 'simple-password-protect'));
     }
 
     // Check the password
@@ -38,7 +38,7 @@ function password_protect_site() {
                 $site_id = get_current_blog_id();
                 $password = isset(MY_PASSWORDS[$site_id]) ? MY_PASSWORDS[$site_id] : null;
                 if (!$password) {
-                    wp_die(__('Password configuration error. Please contact the administrator.', 'password-protect-site'));
+                    wp_die(esc_html('Password configuration error. Please contact the administrator.', 'simple-password-protect'));
                 }
             } else {
                 $password = MY_PASSWORDS;
@@ -52,10 +52,10 @@ function password_protect_site() {
             exit;
         } else {
             wp_die('<form method="post" action="">
-                <p>' . __('Incorrect password. Please try again:', 'password-protect-site') . '</p>
+                <p>' . esc_html('Incorrect password. Please try again:', 'simple-password-protect') . '</p>
                 <input type="password" name="password" required />
-                <input type="submit" value="' . __('Enter', 'password-protect-site') . '" />
-            </form>', __('Restricted Access', 'password-protect-site'));
+                <input type="submit" value="' . esc_html('Enter', 'simple-password-protect') . '" />
+            </form>', esc_html('Restricted Access', 'simple-password-protect'));
         }
     }
 }
